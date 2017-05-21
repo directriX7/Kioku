@@ -17,7 +17,6 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         decksTable.dataSource = self
         self.decksTable.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
         retrieveUserDecks(usrname: username)
-    
         
     }
     
