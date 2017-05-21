@@ -67,7 +67,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGM-u5-ZcC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="162.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gl4-MD-iQC">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gl4-MD-iQC">
                                         <rect key="frame" x="20" y="31" width="335" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="cIb-hQ-vEc"/>
@@ -278,30 +278,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adT-WL-STw">
-                                <rect key="frame" x="0.0" y="213" width="375" height="306"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adT-WL-STw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="519"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7A-ou-vki">
-                                        <rect key="frame" x="321" y="8" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pPN-F5-QKi">
+                                        <rect key="frame" x="0.0" y="-63" width="375" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pPN-F5-QKi" firstAttribute="leading" secondItem="adT-WL-STw" secondAttribute="leading" id="0So-dd-E3o"/>
+                                    <constraint firstAttribute="trailing" secondItem="pPN-F5-QKi" secondAttribute="trailing" id="4RK-3a-fBw"/>
+                                    <constraint firstAttribute="bottom" secondItem="pPN-F5-QKi" secondAttribute="bottom" id="8Qs-LF-1Mx"/>
+                                    <constraint firstItem="pPN-F5-QKi" firstAttribute="top" secondItem="adT-WL-STw" secondAttribute="top" id="LkU-rg-ZIw"/>
+                                    <constraint firstItem="pPN-F5-QKi" firstAttribute="width" secondItem="adT-WL-STw" secondAttribute="width" id="yMX-Qq-7ll"/>
+                                </constraints>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Eh-sW-chr">
+                                <rect key="frame" x="20" y="603" width="335" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBv-fu-hjP">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="44"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addButton:" destination="YIB-Xg-TUB" eventType="touchUpInside" id="sU6-aI-03T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7A-ou-vki">
+                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="44"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveButton:" destination="YIB-Xg-TUB" eventType="touchUpInside" id="gre-BX-LMS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBv-fu-hjP">
-                                        <rect key="frame" x="8" y="8" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Add"/>
-                                        <connections>
-                                            <action selector="addButton:" destination="YIB-Xg-TUB" eventType="touchUpInside" id="sU6-aI-03T"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                            </scrollView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="kif-zt-1lT"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6Eh-sW-chr" secondAttribute="trailing" constant="20" id="8n4-Gu-nbs"/>
+                            <constraint firstAttribute="trailing" secondItem="adT-WL-STw" secondAttribute="trailing" id="9c7-W9-aNs"/>
+                            <constraint firstItem="adT-WL-STw" firstAttribute="top" secondItem="qby-fP-1UT" secondAttribute="bottom" id="Ae9-2A-sR2"/>
+                            <constraint firstItem="adT-WL-STw" firstAttribute="leading" secondItem="o4O-UH-HM2" secondAttribute="leading" id="UmM-Z4-eTx"/>
+                            <constraint firstItem="6Eh-sW-chr" firstAttribute="leading" secondItem="o4O-UH-HM2" secondAttribute="leading" constant="20" id="doN-R7-uVr"/>
+                            <constraint firstItem="6Eh-sW-chr" firstAttribute="top" secondItem="adT-WL-STw" secondAttribute="bottom" constant="20" id="e62-Os-9C7"/>
+                            <constraint firstItem="Ac7-2f-S1M" firstAttribute="top" secondItem="6Eh-sW-chr" secondAttribute="bottom" constant="20" id="jIf-Kb-M4o"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6by-mJ-sN1">
                         <nil key="title"/>
@@ -332,7 +360,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myv-x8-hPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XCV-pz-1Ao" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-703" y="-1550"/>
+            <point key="canvasLocation" x="-703.20000000000005" y="-1550.3748125937032"/>
         </scene>
         <!--Review View-->
         <scene sceneID="knS-L5-NRR">
@@ -885,6 +913,7 @@
     </scenes>
     <resources>
         <image name="ico_check" width="30" height="30"/>
+        <image name="img_logo" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VbH-ng-dt5"/>
