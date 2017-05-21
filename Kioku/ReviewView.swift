@@ -245,9 +245,10 @@ class ReviewView : UIViewController {
         var deckid: Int
         
         while result?.next() == true {
-            var temp = result?.string(forColumn: "DECKID")
+            var temp = result?.string(forColumn: "DECKID").components(separatedBy: deckName)[1]
+            
             //var tempArr = temp?.components(separatedBy: ")
-            deckid = Int((result?.string(forColumn: "DECKID"))!)!
+            deckid = Int(temp!)!
             idList.append(deckid)
         }
         
