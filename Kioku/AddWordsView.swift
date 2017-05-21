@@ -8,12 +8,16 @@
 
 import Foundation
 import UIKit
+import TextFieldEffects
 
 class AddWordsView : UIViewController {
     
+    @IBOutlet weak var wordsStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        print(username)
+        print(deckName)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -100,7 +104,7 @@ class AddWordsView : UIViewController {
     
     @IBAction func addButton(_ sender: UIButton) {
         
-        let instanceCount = wordFieldList.count
+        /*let instanceCount = wordFieldList.count
         let WORD_NEWYCOORD : Double = WORD_YCOORD + (45.0 * Double(instanceCount))
         
         // add new word field
@@ -132,20 +136,32 @@ class AddWordsView : UIViewController {
         newDef.clearButtonMode = UITextFieldViewMode.whileEditing;
         newDef.contentVerticalAlignment = UIControlContentVerticalAlignment.center
         newDef.autocapitalizationType = UITextAutocapitalizationType.none
-        
+ 
         self.view.addSubview(newDef)
         defFieldList.append(newDef)
+         */
         
-        
+        let addWordsItemView = Bundle.main.loadNibNamed("AddWordsItemView", owner: nil, options: nil)?[0] as! UIStackView
+        wordsStackView.addArrangedSubview(addWordsItemView)
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
         var success = true
-        for i in 0..<wordFieldList.count {
+        var addedWordsCount = 0
+        
+        for i in 0..<wordsStackView.arrangedSubviews.count {
+            let stackView:UIStackView = wordsStackView.arrangedSubviews[i] as! UIStackView
+            let word:HoshiTextField = stackView.arrangedSubviews[0] as! HoshiTextField
+            let desc:HoshiTextField = stackView.arrangedSubviews[1] as! HoshiTextField
             
-            if (!saveWord(word: wordFieldList[i].text!, def: defFieldList[i].text!, deck: deckName)) {
-                success = false
-                break;
+            if (word.text!.characters.count > 0 ||
+                desc.text!.characters.count > 0) {
+                addedWordsCount += 1
+                
+                if (!saveWord(word: word.text!, def: desc.text!, deck: deckName)) {
+                    success = false
+                    break;
+                }
             }
         }
         
@@ -155,7 +171,7 @@ class AddWordsView : UIViewController {
         if (success) {
             //connect word list to profile
             linkWordListToProfile(user: username, deck: deckName)
-            alertController = UIAlertController(title: "Words added", message: "A total of \(wordFieldList.count) words have been added to the deck!", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Words added", message: "A total of \(addedWordsCount) words have been added to the deck!", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler:  { (UIAlertAction) in
                 self.performSegue(withIdentifier: "toDeckList", sender: Any?.self)
             })

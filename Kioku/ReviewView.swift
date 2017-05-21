@@ -13,12 +13,16 @@ class ReviewView : UIViewController {
 
     var username = ""
     var deckName = ""
-    var idList = [String]()
+    var totalDeckCard = 0
+    
+    var idList = [Int]()
     var wordList = [String]()
     var correctChoiceLocation = ""
     var correctChoice = ""
     var totalReview = 0
     var reviewProgressCount = 0
+    
+    
     
     @IBOutlet weak var defLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
@@ -27,7 +31,21 @@ class ReviewView : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        idList = getIDstoReview(user: username, deck: deckName)
+        totalReview = reviewCount(user: username, deck: deckName)
+        
+        
+            var correctIndex = idList[reviewProgressCount]
+            print(idList)
+            correctChoice = getWordtoReview(deckID: correctChoiceLocation)
+            var randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+            prepareQuestion(id: correctIndex, choices: randChoice, correctChoice: self.correctChoice)
+            
+        
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,6 +70,7 @@ class ReviewView : UIViewController {
     @IBAction func button1(_ sender: UIButton) {
         if button1label.titleLabel?.text == correctChoice {
             reviewProgressCount += 1
+            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
             //prepareQuestion(reviewProgressCount, )
         }
         else {
@@ -73,6 +92,7 @@ class ReviewView : UIViewController {
     @IBAction func button3(_ sender: UIButton) {
         if button3label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
         }
         else {
             // should move to the question to the end?
@@ -83,6 +103,7 @@ class ReviewView : UIViewController {
     @IBAction func button4(_ sender: UIButton) {
         if button4label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
         }
         else {
             // should move to the question to the end?
@@ -93,6 +114,7 @@ class ReviewView : UIViewController {
     @IBAction func button5(_ sender: Any) {
         if button5label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
         }
         else {
             // should move to the question to the end?
@@ -103,6 +125,7 @@ class ReviewView : UIViewController {
     @IBAction func button6(_ sender: UIButton) {
         if button6label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
         }
         else {
             // should move to the question to the end?
@@ -110,9 +133,9 @@ class ReviewView : UIViewController {
         }
     }
     
-    func prepareQuestion(id: String, choices: [String], correctChoice: String) {
+    func prepareQuestion(id: Int, choices: [String], correctChoice: String) {
         var word: String
-        var def: String
+        var def: String = "test"
         // dirty way of shuffling choices
         var buttonArray = ["button1", "button2", "button3", "button4", "button5", "button6"].shuffled()
         
@@ -120,7 +143,11 @@ class ReviewView : UIViewController {
         word = getWordtoReview(deckID: "\(deckName)\(id)")
         def = getDefinitiontoReview(deckID: "\(deckName)\(id)")
         
+        print(word)
+        print(def)
+        
         defLabel.text = def
+        
         // help me
         for i in 0...choices.count {
             
@@ -129,7 +156,7 @@ class ReviewView : UIViewController {
                     button1label.setTitle(choices[i], for: .normal)
                 }
                 else {
-                    button1label.setTitle(choices[i], for: .normal)
+                    button1label.setTitle(word, for: .normal)
                     correctChoiceLocation = "button1"
                 }
             }
@@ -140,7 +167,7 @@ class ReviewView : UIViewController {
                     button2label.setTitle(choices[i], for: .normal)
                 }
                 else {
-                    button2label.setTitle(choices[i], for: .normal)
+                    button2label.setTitle(word, for: .normal)
                     correctChoiceLocation = "button2"
                 }
             }
@@ -150,7 +177,7 @@ class ReviewView : UIViewController {
                     button3label.setTitle(choices[i], for: .normal)
                 }
                 else {
-                    button3label.setTitle(choices[i], for: .normal)
+                    button3label.setTitle(word, for: .normal)
                     correctChoiceLocation = "button3"
                 }
             }
@@ -160,7 +187,7 @@ class ReviewView : UIViewController {
                     button4label.setTitle(choices[i], for: .normal)
                 }
                 else {
-                    button4label.setTitle(choices[i], for: .normal)
+                    button4label.setTitle(word, for: .normal)
                     correctChoiceLocation = "button4"
                 }
             }
@@ -170,7 +197,7 @@ class ReviewView : UIViewController {
                     button5label.setTitle(choices[i], for: .normal)
                 }
                 else {
-                    button5label.setTitle(choices[i], for: .normal)
+                    button5label.setTitle(word, for: .normal)
                     correctChoiceLocation = "button5"
                 }
             }
@@ -180,7 +207,7 @@ class ReviewView : UIViewController {
                     button6label.setTitle(choices[i], for: .normal)
                 }
                 else {
-                    button6label.setTitle(choices[i], for: .normal)
+                    button6label.setTitle(word, for: .normal)
                     correctChoiceLocation = "button6"
                 }
             }
@@ -195,7 +222,7 @@ class ReviewView : UIViewController {
         
         var count = 0
         
-        let querySQL = "SELECT COUNT(*) AS REVIEWCOUNT FROM USERPROGRESS WHERE TOREVIEW = 'YES' AND USER = '\(user)' AND DECK = '\(deck)'"
+        let querySQL = "SELECT COUNT(*) AS REVIEWCOUNT FROM USERPROGRESS WHERE TOREVIEW = 'YES' AND USERNAME = '\(user)' AND DECK = '\(deck)'"
         
         let result = db.QueryDBWithRequestString(sql: querySQL)
         
@@ -209,16 +236,18 @@ class ReviewView : UIViewController {
         return count
     }
     
-    func getIDstoReview(user: String, deck: String) -> [String] {
-        var idList = [String]()
+    func getIDstoReview(user: String, deck: String) -> [Int] {
+        var idList = [Int]()
         
-        let querySQL = "SELECT DECKID FROM USERPROGRESS WHERE TOREVIEW = 'YES' AND USER = '\(user)' AND DECK = '\(deck)'"
+        let querySQL = "SELECT DECKID FROM USERPROGRESS WHERE TOREVIEW = 'YES' AND USERNAME = '\(user)' AND DECK = '\(deck)'"
         
         let result = db.QueryDBWithRequestString(sql: querySQL)
-        var deckid = ""
+        var deckid: Int
         
         while result?.next() == true {
-            deckid = (result?.string(forColumn: "DECKID"))!
+            var temp = result?.string(forColumn: "DECKID")
+            //var tempArr = temp?.components(separatedBy: ")
+            deckid = Int((result?.string(forColumn: "DECKID"))!)!
             idList.append(deckid)
         }
         
@@ -262,15 +291,27 @@ class ReviewView : UIViewController {
         
         return def
     }
+    // idList(reviewProgressCount) = correct answer
     
-    func getRandomChoices(deck: String, deckID: String) -> [String] {
+    func getRandomChoices(deck: String, deckID: Int) -> [String] {
         var randomChoices = [String]()
         
         // get random choices from deck
         // deckID so randomizer won't fuck up by getting the correct answer
+        var randWordIndex: Int
+        
+        for i in 0...4 {
+            repeat{
+                randWordIndex = Int(arc4random_uniform(UInt32(totalDeckCard)))
+            }while randWordIndex == deckID
+            
+            randomChoices.append(getWordtoReview(deckID: "\(deckName)\(randWordIndex)"))
+            
+        }
         
         return randomChoices
     }
+    
     
 }
 

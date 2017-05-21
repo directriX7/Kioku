@@ -25,6 +25,7 @@
 		942B44DB1ECEE5DC00C01CDF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B44DA1ECEE5DC00C01CDF /* libsqlite3.tbd */; };
 		942B44DF1ECF1DEF00C01CDF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */; };
 		942B44E11ECF3D7D00C01CDF /* DeckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B44E01ECF3D7D00C01CDF /* DeckListView.swift */; };
+		945455BC1ED1E31500DCB3F2 /* AddWordsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945455BB1ED1E31500DCB3F2 /* AddWordsItemView.xib */; };
 		94E9E2311ECF724100BE7E70 /* FMDBDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E2301ECF724100BE7E70 /* FMDBDataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		942B44DA1ECEE5DC00C01CDF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		942B44E01ECF3D7D00C01CDF /* DeckListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListView.swift; sourceTree = "<group>"; };
+		945455BB1ED1E31500DCB3F2 /* AddWordsItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWordsItemView.xib; sourceTree = "<group>"; };
 		94E9E2301ECF724100BE7E70 /* FMDBDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 				942B44B41ECEE39B00C01CDF /* Main.storyboard */,
 				942B44B71ECEE39B00C01CDF /* Assets.xcassets */,
 				942B44B91ECEE39B00C01CDF /* LaunchScreen.storyboard */,
+				945455BB1ED1E31500DCB3F2 /* AddWordsItemView.xib */,
 				942B44BC1ECEE39B00C01CDF /* Info.plist */,
 				942B44B21ECEE39B00C01CDF /* ViewController.swift */,
 				942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */,
@@ -208,6 +211,7 @@
 				942B44BB1ECEE39B00C01CDF /* LaunchScreen.storyboard in Resources */,
 				942B44B81ECEE39B00C01CDF /* Assets.xcassets in Resources */,
 				942B44B61ECEE39B00C01CDF /* Main.storyboard in Resources */,
+				945455BC1ED1E31500DCB3F2 /* AddWordsItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

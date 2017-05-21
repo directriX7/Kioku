@@ -8,8 +8,15 @@
 
 import Foundation
 import UIKit
+import TextFieldEffects
 
 class AddDeckView : UIViewController {
+    
+    @IBOutlet weak var deckName: HoshiTextField!
+    @IBOutlet weak var deckDesc: HoshiTextField!
+    
+    var username = ""
+    let fmdbDataModel = FMDBDataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +26,6 @@ class AddDeckView : UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    var username = ""
-    
-    let fmdbDataModel = FMDBDataModel()
     
     func addToDeckTable (name: String, definition: String) -> Bool {
         let insertSQL = "INSERT INTO DECKDEFINITION (DECKNAME, DECKDESC) VALUES ('\(name)','\(definition)')"
@@ -60,6 +64,9 @@ class AddDeckView : UIViewController {
         }
     }
     
+    //MARK:
+    //MARK: UIControls
+    
     @IBAction func nextbutton(_ sender: UIButton) {
         if (addToDeckTable(name: deckName.text!, definition: deckDesc.text!)) && (addToUserDeckReference(username: self.username, deck: deckName.text!)) {
             
@@ -70,7 +77,4 @@ class AddDeckView : UIViewController {
         }
         
     }
-    
-    @IBOutlet weak var deckName: UITextField!
-    @IBOutlet weak var deckDesc: UITextField!
 }

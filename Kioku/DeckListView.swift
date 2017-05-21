@@ -11,13 +11,25 @@ import UIKit
 
 class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var decknameLabel: UILabel!
+    @IBOutlet weak var wordcountLabel: UILabel!
+    @IBOutlet weak var deckdescLabel: UILabel!
+    @IBOutlet weak var wordslearnedLabel: UILabel!
+    @IBOutlet weak var toreviewLabel: UILabel!
+    @IBOutlet weak var decksTable: UITableView!
+    
+    let db = FMDBDataModel()
+    
+    let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+    var userDecks = [String]()
+    var username = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         decksTable.delegate = self
         decksTable.dataSource = self
         self.decksTable.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
-        retrieveUserDecks(usrname: username)
-        
+        refreshData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,20 +37,10 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         // Dispose of any resources that can be recreated.
     }
     
-   
-    
-    @IBOutlet weak var decknameLabel: UILabel!
-    @IBOutlet weak var wordcountLabel: UILabel!
-    @IBOutlet weak var deckdescLabel: UILabel!
-    @IBOutlet weak var wordslearnedLabel: UILabel!
-    @IBOutlet weak var toreviewLabel: UILabel!
-    
-    
-    let db = FMDBDataModel()
-    
-    let filePath = NSSearchPathForDirectoriesInDomains(
-        .documentDirectory, .userDomainMask, true
-        ).first!
+    func refreshData() {
+        retrieveUserDecks(usrname: username)
+        self.decksTable.reloadData()
+    }
     
     func retrieveDesc(deck: String) -> String {
         
@@ -108,7 +110,7 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
             let queryStatement = "SELECT DECKNAME FROM USERDECKS WHERE USERNAME = '\(usrname)'"
             
             let result:FMResultSet? = contactDB?.executeQuery(queryStatement, withArgumentsIn: nil)
-            
+            userDecks.removeAll()
             while result?.next() == true {
                 
                 userDecks.append((result?.string(forColumn: "DECKNAME"))!)
@@ -164,10 +166,11 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
             adView.username = self.username
         }
         if segue.identifier == "toReview" {
-//            let trView = segue.destination as! ReviewView
-//            
-//            trView.username = self.username
-//            trView.deckName = decknameLabel.text!
+            let trView = segue.destination as! ReviewView
+            
+            trView.username = self.username
+            trView.deckName = decknameLabel.text!
+            trView.totalDeckCard = retrieveWordCount(deck: decknameLabel.text!)
         }
          if segue.identifier == "toLearn" {
             let tlView = segue.destination as! LearnView
@@ -179,14 +182,13 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         
     }
     
-    var userDecks = [String]()
-    var username = ""
     
-    @IBOutlet weak var decksTable: UITableView!
+    
+    
     
     //MARK: Navigation
     
     @IBAction func unwindToDeckList(segue: UIStoryboardSegue) {
-    
+        refreshData()
     }
 }
