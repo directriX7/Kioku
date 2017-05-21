@@ -39,6 +39,45 @@ class FMDBDataModel : NSObject {
         }
     }
     
+    func TruncateEverything() {
+    
+        if contactDB.open() {
+            var delSQL = "DELETE FROM WORDBANK"
+    
+            var delete = contactDB.executeUpdate(delSQL, withArgumentsIn: nil)
+    
+            if delete {
+                print("Wordbank truncate success")
+            }
+            else {
+                print("Wordbank truncate error")
+            }
+    
+            delSQL = "DELETE FROM DECKDEFINITION"
+            delete = contactDB.executeUpdate(delSQL, withArgumentsIn: nil)
+    
+            if delete {
+                print("Deck defnition truncate success")
+            }
+            else {
+                print("Deck definition truncate error")
+            }
+    
+            delSQL = "DELETE FROM USERDECKS"
+            delete = contactDB.executeUpdate(delSQL, withArgumentsIn: nil)
+
+    
+            if delete {
+                print("Userdeck truncate success")
+            }
+            else {
+                print("Userdeck truncate error")
+            }
+        }
+        contactDB.close()
+    }
+
+    
     func CloseDB() {
         contactDB.close()
     }

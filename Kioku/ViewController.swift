@@ -32,39 +32,7 @@ class ViewController: UIViewController {
         btnRegister.layer.borderColor = UIColor (red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0).cgColor
         btnRegister.layer.borderWidth = 2.0
 
-// MARK:
-// MARK: TruncateTables
-//        var delSQL = "DELETE FROM WORDBANK"
-//        
-//        var delete = fmdbDataModel.UpdateDBWithRequestString(sql: delSQL)
-//        
-//        if delete! {
-//            print("Wordbank truncate success")
-//        }
-//        else {
-//            print("Wordbank truncate error")
-//        }
-//        
-//        delSQL = "DELETE FROM DECKDEFINITION"
-//        delete = fmdbDataModel.UpdateDBWithRequestString(sql: delSQL)
-//        
-//        if delete! {
-//            print("Deck defnition truncate success")
-//        }
-//        else {
-//            print("Deck definition truncate error")
-//        }
-//        
-//        delSQL = "DELETE FROM USERDECKS"
-//        delete = fmdbDataModel.UpdateDBWithRequestString(sql: delSQL)
-//        
-//        if delete! {
-//            print("Userdeck truncate success")
-//        }
-//        else {
-//            print("Userdeck truncate error")
-//        }
-        
+        fmdbDataModel.TruncateEverything()
         checkDB()
         // Do any additional setup after loading the view, typically from a nib.
     }
