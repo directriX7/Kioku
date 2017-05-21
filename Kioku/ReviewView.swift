@@ -143,8 +143,8 @@ class ReviewView : UIViewController {
         word = getWordtoReview(deckID: "\(deckName)\(id)")
         def = getDefinitiontoReview(deckID: "\(deckName)\(id)")
         
-        print(word)
-        print(def)
+        print(choices)
+        
         
         defLabel.text = def
         
@@ -303,10 +303,12 @@ class ReviewView : UIViewController {
         
         for i in 0...4 {
             repeat{
-                randWordIndex = Int(arc4random_uniform(UInt32(totalDeckCard)))
+                randWordIndex = Int(arc4random_uniform(UInt32(totalDeckCard))) + 1
+                
             }while randWordIndex == deckID
             
-            randomChoices.append(getWordtoReview(deckID: "\(deckName)\(randWordIndex)"))
+            
+            randomChoices.append(getWordtoReview(deckID: "\(deck)\(randWordIndex)"))
             
         }
         
