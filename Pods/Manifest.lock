@@ -1,0 +1,15 @@
+PODS:
+  - SCLAlertView (0.7.0)
+  - TextFieldEffects (1.3.2)
+
+DEPENDENCIES:
+  - SCLAlertView
+  - TextFieldEffects
+
+SPEC CHECKSUMS:
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
+
+PODFILE CHECKSUM: de246b9dda1c5dc340bf757bc6837e4548beb2be
+
+COCOAPODS: 1.2.1

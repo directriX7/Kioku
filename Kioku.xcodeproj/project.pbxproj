@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67A822477742B67525547E17 /* Pods_Kioku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32AAAC573F7D3625192140B5 /* Pods_Kioku.framework */; };
+		941D012F1ED00EDC007B64B2 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D012E1ED00EDC007B64B2 /* LearnView.swift */; };
+		941D01311ED00F59007B64B2 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D01301ED00F59007B64B2 /* ReviewView.swift */; };
+		9424873C1ECF59D00020965B /* AddWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424873B1ECF59D00020965B /* AddWordsView.swift */; };
+		9424873E1ECF63750020965B /* AddDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424873D1ECF63750020965B /* AddDeckView.swift */; };
+		942B44B11ECEE39B00C01CDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B44B01ECEE39B00C01CDF /* AppDelegate.swift */; };
+		942B44B31ECEE39B00C01CDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B44B21ECEE39B00C01CDF /* ViewController.swift */; };
+		942B44B61ECEE39B00C01CDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942B44B41ECEE39B00C01CDF /* Main.storyboard */; };
+		942B44B81ECEE39B00C01CDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942B44B71ECEE39B00C01CDF /* Assets.xcassets */; };
+		942B44BB1ECEE39B00C01CDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942B44B91ECEE39B00C01CDF /* LaunchScreen.storyboard */; };
+		942B44CD1ECEE3DC00C01CDF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B44C41ECEE3DC00C01CDF /* FMDatabase.m */; };
+		942B44CE1ECEE3DC00C01CDF /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B44C61ECEE3DC00C01CDF /* FMResultSet.m */; };
+		942B44CF1ECEE3DC00C01CDF /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B44C81ECEE3DC00C01CDF /* FMDatabaseQueue.m */; };
+		942B44D01ECEE3DC00C01CDF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B44CA1ECEE3DC00C01CDF /* FMDatabaseAdditions.m */; };
+		942B44D11ECEE3DC00C01CDF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B44CC1ECEE3DC00C01CDF /* FMDatabasePool.m */; };
+		942B44DB1ECEE5DC00C01CDF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B44DA1ECEE5DC00C01CDF /* libsqlite3.tbd */; };
+		942B44DF1ECF1DEF00C01CDF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */; };
+		942B44E11ECF3D7D00C01CDF /* DeckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B44E01ECF3D7D00C01CDF /* DeckListView.swift */; };
+		94E9E2311ECF724100BE7E70 /* FMDBDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E2301ECF724100BE7E70 /* FMDBDataModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2500575E315A2385AB51C0C7 /* Pods-Kioku.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kioku.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kioku/Pods-Kioku.release.xcconfig"; sourceTree = "<group>"; };
+		32AAAC573F7D3625192140B5 /* Pods_Kioku.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kioku.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C38B8CF70E8393BC8668AAC /* Pods-Kioku.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kioku.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kioku/Pods-Kioku.debug.xcconfig"; sourceTree = "<group>"; };
+		941D012E1ED00EDC007B64B2 /* LearnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		941D01301ED00F59007B64B2 /* ReviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		9424873B1ECF59D00020965B /* AddWordsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordsView.swift; sourceTree = "<group>"; };
+		9424873D1ECF63750020965B /* AddDeckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeckView.swift; sourceTree = "<group>"; };
+		942B44AD1ECEE39B00C01CDF /* Kioku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kioku.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		942B44B01ECEE39B00C01CDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		942B44B21ECEE39B00C01CDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		942B44B51ECEE39B00C01CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		942B44B71ECEE39B00C01CDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		942B44BA1ECEE39B00C01CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		942B44BC1ECEE39B00C01CDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		942B44C21ECEE3DC00C01CDF /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		942B44C31ECEE3DC00C01CDF /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		942B44C41ECEE3DC00C01CDF /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		942B44C51ECEE3DC00C01CDF /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		942B44C61ECEE3DC00C01CDF /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		942B44C71ECEE3DC00C01CDF /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		942B44C81ECEE3DC00C01CDF /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		942B44C91ECEE3DC00C01CDF /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		942B44CA1ECEE3DC00C01CDF /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		942B44CB1ECEE3DC00C01CDF /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		942B44CC1ECEE3DC00C01CDF /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		942B44D21ECEE43F00C01CDF /* Kioku-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kioku-Bridging-Header.h"; sourceTree = "<group>"; };
+		942B44DA1ECEE5DC00C01CDF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		942B44E01ECF3D7D00C01CDF /* DeckListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListView.swift; sourceTree = "<group>"; };
+		94E9E2301ECF724100BE7E70 /* FMDBDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBDataModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		942B44AA1ECEE39B00C01CDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				942B44DB1ECEE5DC00C01CDF /* libsqlite3.tbd in Frameworks */,
+				67A822477742B67525547E17 /* Pods_Kioku.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DBE60F9BAE86298FDF0B5EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C38B8CF70E8393BC8668AAC /* Pods-Kioku.debug.xcconfig */,
+				2500575E315A2385AB51C0C7 /* Pods-Kioku.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		942B44A41ECEE39B00C01CDF = {
+			isa = PBXGroup;
+			children = (
+				942B44D21ECEE43F00C01CDF /* Kioku-Bridging-Header.h */,
+				942B44AF1ECEE39B00C01CDF /* Kioku */,
+				942B44AE1ECEE39B00C01CDF /* Products */,
+				942B44C21ECEE3DC00C01CDF /* FMDB.h */,
+				942B44C31ECEE3DC00C01CDF /* FMDatabase.h */,
+				942B44C41ECEE3DC00C01CDF /* FMDatabase.m */,
+				942B44C51ECEE3DC00C01CDF /* FMResultSet.h */,
+				942B44C61ECEE3DC00C01CDF /* FMResultSet.m */,
+				942B44C71ECEE3DC00C01CDF /* FMDatabaseQueue.h */,
+				942B44C81ECEE3DC00C01CDF /* FMDatabaseQueue.m */,
+				942B44C91ECEE3DC00C01CDF /* FMDatabaseAdditions.h */,
+				942B44CA1ECEE3DC00C01CDF /* FMDatabaseAdditions.m */,
+				942B44CB1ECEE3DC00C01CDF /* FMDatabasePool.h */,
+				942B44CC1ECEE3DC00C01CDF /* FMDatabasePool.m */,
+				942B44D91ECEE5DC00C01CDF /* Frameworks */,
+				2DBE60F9BAE86298FDF0B5EC /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		942B44AE1ECEE39B00C01CDF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				942B44AD1ECEE39B00C01CDF /* Kioku.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		942B44AF1ECEE39B00C01CDF /* Kioku */ = {
+			isa = PBXGroup;
+			children = (
+				942B44B01ECEE39B00C01CDF /* AppDelegate.swift */,
+				94E9E2301ECF724100BE7E70 /* FMDBDataModel.swift */,
+				942B44B41ECEE39B00C01CDF /* Main.storyboard */,
+				942B44B71ECEE39B00C01CDF /* Assets.xcassets */,
+				942B44B91ECEE39B00C01CDF /* LaunchScreen.storyboard */,
+				942B44BC1ECEE39B00C01CDF /* Info.plist */,
+				942B44B21ECEE39B00C01CDF /* ViewController.swift */,
+				942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */,
+				942B44E01ECF3D7D00C01CDF /* DeckListView.swift */,
+				9424873B1ECF59D00020965B /* AddWordsView.swift */,
+				9424873D1ECF63750020965B /* AddDeckView.swift */,
+				941D012E1ED00EDC007B64B2 /* LearnView.swift */,
+				941D01301ED00F59007B64B2 /* ReviewView.swift */,
+			);
+			path = Kioku;
+			sourceTree = "<group>";
+		};
+		942B44D91ECEE5DC00C01CDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				942B44DA1ECEE5DC00C01CDF /* libsqlite3.tbd */,
+				32AAAC573F7D3625192140B5 /* Pods_Kioku.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		942B44AC1ECEE39B00C01CDF /* Kioku */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 942B44BF1ECEE39B00C01CDF /* Build configuration list for PBXNativeTarget "Kioku" */;
+			buildPhases = (
+				AAA9F46672050AE591C4114C /* [CP] Check Pods Manifest.lock */,
+				942B44A91ECEE39B00C01CDF /* Sources */,
+				942B44AA1ECEE39B00C01CDF /* Frameworks */,
+				942B44AB1ECEE39B00C01CDF /* Resources */,
+				15697DB4524BBD35BCC8D92D /* [CP] Embed Pods Frameworks */,
+				CAECE4239C9EF0A0A33CCD29 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kioku;
+			productName = Kioku;
+			productReference = 942B44AD1ECEE39B00C01CDF /* Kioku.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		942B44A51ECEE39B00C01CDF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = bestgroup;
+				TargetAttributes = {
+					942B44AC1ECEE39B00C01CDF = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = LNPEVEZ2YJ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 942B44A81ECEE39B00C01CDF /* Build configuration list for PBXProject "Kioku" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 942B44A41ECEE39B00C01CDF;
+			productRefGroup = 942B44AE1ECEE39B00C01CDF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				942B44AC1ECEE39B00C01CDF /* Kioku */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		942B44AB1ECEE39B00C01CDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				942B44BB1ECEE39B00C01CDF /* LaunchScreen.storyboard in Resources */,
+				942B44B81ECEE39B00C01CDF /* Assets.xcassets in Resources */,
+				942B44B61ECEE39B00C01CDF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15697DB4524BBD35BCC8D92D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kioku/Pods-Kioku-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAA9F46672050AE591C4114C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CAECE4239C9EF0A0A33CCD29 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kioku/Pods-Kioku-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		942B44A91ECEE39B00C01CDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				942B44CF1ECEE3DC00C01CDF /* FMDatabaseQueue.m in Sources */,
+				942B44CD1ECEE3DC00C01CDF /* FMDatabase.m in Sources */,
+				94E9E2311ECF724100BE7E70 /* FMDBDataModel.swift in Sources */,
+				942B44B31ECEE39B00C01CDF /* ViewController.swift in Sources */,
+				942B44E11ECF3D7D00C01CDF /* DeckListView.swift in Sources */,
+				942B44CE1ECEE3DC00C01CDF /* FMResultSet.m in Sources */,
+				941D01311ED00F59007B64B2 /* ReviewView.swift in Sources */,
+				9424873E1ECF63750020965B /* AddDeckView.swift in Sources */,
+				942B44D11ECEE3DC00C01CDF /* FMDatabasePool.m in Sources */,
+				9424873C1ECF59D00020965B /* AddWordsView.swift in Sources */,
+				942B44DF1ECF1DEF00C01CDF /* RegisterView.swift in Sources */,
+				941D012F1ED00EDC007B64B2 /* LearnView.swift in Sources */,
+				942B44B11ECEE39B00C01CDF /* AppDelegate.swift in Sources */,
+				942B44D01ECEE3DC00C01CDF /* FMDatabaseAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		942B44B41ECEE39B00C01CDF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				942B44B51ECEE39B00C01CDF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		942B44B91ECEE39B00C01CDF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				942B44BA1ECEE39B00C01CDF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		942B44BD1ECEE39B00C01CDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		942B44BE1ECEE39B00C01CDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		942B44C01ECEE39B00C01CDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C38B8CF70E8393BC8668AAC /* Pods-Kioku.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LNPEVEZ2YJ;
+				INFOPLIST_FILE = Kioku/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bestgroup.Kioku;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kioku-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		942B44C11ECEE39B00C01CDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2500575E315A2385AB51C0C7 /* Pods-Kioku.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LNPEVEZ2YJ;
+				INFOPLIST_FILE = Kioku/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bestgroup.Kioku;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kioku-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		942B44A81ECEE39B00C01CDF /* Build configuration list for PBXProject "Kioku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				942B44BD1ECEE39B00C01CDF /* Debug */,
+				942B44BE1ECEE39B00C01CDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		942B44BF1ECEE39B00C01CDF /* Build configuration list for PBXNativeTarget "Kioku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				942B44C01ECEE39B00C01CDF /* Debug */,
+				942B44C11ECEE39B00C01CDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 942B44A51ECEE39B00C01CDF /* Project object */;
+}
