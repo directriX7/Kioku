@@ -39,7 +39,7 @@ class ReviewView : UIViewController {
         idList = getIDstoReview(user: username, deck: deckName)
         totalReview = reviewCount(user: username, deck: deckName)
         
-        progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
+        progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
         
         correctIndex = idList[reviewProgressCount]
         
@@ -73,7 +73,7 @@ class ReviewView : UIViewController {
             
             updateStatusToReviewed()
             reviewProgressCount += 1
-            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
+            progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -114,7 +114,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
-            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
+            progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -151,7 +151,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
-            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
+            progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -187,7 +187,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
-            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
+            progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -224,7 +224,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
-            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
+            progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -259,7 +259,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
-            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
+            progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -309,7 +309,15 @@ class ReviewView : UIViewController {
     }
     
     func finishReview() {
-        performSegue(withIdentifier: "toDeckView", sender: Any?.self)
+        alertController = UIAlertController(title: "Review completed", message: "You have reviewed \(totalReview) items.", preferredStyle: .alert)
+        defaultAction = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction!) in
+            
+            self.performSegue(withIdentifier: "toDeckList", sender: Any?.self)
+        })
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+
+        
     }
     
     func placeWrongAnswerToEndQueue() {
