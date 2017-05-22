@@ -168,8 +168,8 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
             let deckID = results?.string(forColumn: "DECKID")
             
             
-            if (Date() > dF.date(from: date)) {
-                changeReviewState(user: self.username, deckID: self.deckID)
+            if (Date() > dF.date(from: date!)!) {
+                changeReviewState(user: self.username, deckID: deckID!)
             }
         }
         
@@ -181,7 +181,7 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         let updateSQL = "UPDATE USERPROGRESS SET TOREVIEW = 'YES' WHERE USERNAME = '\(user)' AND DECKID = '\(deckID)'"
         let execStatement = db.UpdateDBWithRequestString(sql: updateSQL)
         
-        if (execStatement) {
+        if (execStatement!) {
             print("change review state success")
         }
         else {
