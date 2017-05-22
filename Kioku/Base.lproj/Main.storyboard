@@ -615,7 +615,6 @@
                                         <state key="normal" title="Review"/>
                                         <connections>
                                             <action selector="reviewButton:" destination="rWF-Np-4DP" eventType="touchUpInside" id="SWh-xP-9fB"/>
-                                            <segue destination="UxF-jL-wmt" kind="show" identifier="toReview" id="aU9-c9-iNM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -671,6 +670,7 @@
                         <outlet property="toreviewLabel" destination="J5h-ga-lvs" id="koo-Xg-yRq"/>
                         <outlet property="wordcountLabel" destination="25B-qY-FUv" id="HL2-U3-E6E"/>
                         <outlet property="wordslearnedLabel" destination="jBJ-Xn-stZ" id="3CM-H2-Dc5"/>
+                        <segue destination="UxF-jL-wmt" kind="show" identifier="toReview" id="uQ0-S1-rwf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7E-hZ-bOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
