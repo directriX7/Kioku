@@ -162,7 +162,7 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         let dF = DateFormatter()
 
         
-        let querySQL = "SELECT LASTDATE, DECKID FROM USERPROGRESS WHERE USERNAME = '\(username)' AND TOREVIEW = 'NO' AND LEARNED = 'YES'"
+        let querySQL = "SELECT LASTDATE, DECKID FROM USERPROGRESS WHERE USERNAME = '\(username)' AND TOREVIEW = 'NO' AND LEARNED = 'YES' AND LASTDATE != NULL"
         let results = db.QueryDBWithRequestString(sql: querySQL)
         
         while results?.next() == true {

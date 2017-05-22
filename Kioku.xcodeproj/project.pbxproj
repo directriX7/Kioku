@@ -26,6 +26,7 @@
 		942B44DF1ECF1DEF00C01CDF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */; };
 		942B44E11ECF3D7D00C01CDF /* DeckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B44E01ECF3D7D00C01CDF /* DeckListView.swift */; };
 		945455BC1ED1E31500DCB3F2 /* AddWordsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945455BB1ED1E31500DCB3F2 /* AddWordsItemView.xib */; };
+		94A327721ED331DF0048D8E5 /* AddExistingDeckView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A327711ED331DF0048D8E5 /* AddExistingDeckView .swift */; };
 		94E9E2311ECF724100BE7E70 /* FMDBDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E2301ECF724100BE7E70 /* FMDBDataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		942B44E01ECF3D7D00C01CDF /* DeckListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListView.swift; sourceTree = "<group>"; };
 		945455BB1ED1E31500DCB3F2 /* AddWordsItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWordsItemView.xib; sourceTree = "<group>"; };
+		94A327711ED331DF0048D8E5 /* AddExistingDeckView .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AddExistingDeckView .swift"; sourceTree = "<group>"; };
 		94E9E2301ECF724100BE7E70 /* FMDBDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 				9424873D1ECF63750020965B /* AddDeckView.swift */,
 				941D012E1ED00EDC007B64B2 /* LearnView.swift */,
 				941D01301ED00F59007B64B2 /* ReviewView.swift */,
+				94A327711ED331DF0048D8E5 /* AddExistingDeckView .swift */,
 			);
 			path = Kioku;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				942B44D11ECEE3DC00C01CDF /* FMDatabasePool.m in Sources */,
 				9424873C1ECF59D00020965B /* AddWordsView.swift in Sources */,
 				942B44DF1ECF1DEF00C01CDF /* RegisterView.swift in Sources */,
+				94A327721ED331DF0048D8E5 /* AddExistingDeckView .swift in Sources */,
 				941D012F1ED00EDC007B64B2 /* LearnView.swift in Sources */,
 				942B44B11ECEE39B00C01CDF /* AppDelegate.swift in Sources */,
 				942B44D01ECEE3DC00C01CDF /* FMDatabaseAdditions.m in Sources */,
