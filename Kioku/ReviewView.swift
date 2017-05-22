@@ -36,15 +36,12 @@ class ReviewView : UIViewController {
         totalReview = reviewCount(user: username, deck: deckName)
         
         
-            var correctIndex = idList[reviewProgressCount]
-            print(idList)
-            correctChoice = getWordtoReview(deckID: correctChoiceLocation)
-            var randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
-            prepareQuestion(id: correctIndex, choices: randChoice, correctChoice: self.correctChoice)
-            
+        var correctIndex = idList[reviewProgressCount]
+        print(idList)
         
-        
-        
+        var randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+        prepareQuestion(id: correctIndex, choices: randChoice)
+
         
     }
     
@@ -82,6 +79,8 @@ class ReviewView : UIViewController {
     @IBAction func button2(_ sender: UIButton) {
         if button2label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            reviewProgressCount += 1
+            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
         }
         else {
             // should move to the question to the end?
@@ -133,19 +132,16 @@ class ReviewView : UIViewController {
         }
     }
     
-    func prepareQuestion(id: Int, choices: [String], correctChoice: String) {
+    func prepareQuestion(id: Int, choices: [String]) {
         var word: String
         var def: String = "test"
         // dirty way of shuffling choices
         var buttonArray = ["button1", "button2", "button3", "button4", "button5", "button6"].shuffled()
         
-        
         word = getWordtoReview(deckID: "\(deckName)\(id)")
         def = getDefinitiontoReview(deckID: "\(deckName)\(id)")
         
-        print(choices)
-        
-        
+        correctChoice = word
         defLabel.text = def
         
         // help me
@@ -213,9 +209,7 @@ class ReviewView : UIViewController {
             }
         
         }
-        
 
-        
     }
     
     func reviewCount(user: String, deck: String) -> Int {
