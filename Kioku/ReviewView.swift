@@ -13,14 +13,16 @@ class ReviewView : UIViewController {
 
     var username = ""
     var deckName = ""
-    var totalDeckCard = 0
+    var totalDeckCard: Int = 0
     
     var idList = [Int]()
     var wordList = [String]()
     var correctChoiceLocation = ""
     var correctChoice = ""
     var totalReview = 0
-    var reviewProgressCount = 0
+    var reviewProgressCount: Int = 0
+    var correctIndex: Int = 0
+    var randChoice = [String]()
     
     
     
@@ -36,10 +38,9 @@ class ReviewView : UIViewController {
         totalReview = reviewCount(user: username, deck: deckName)
         
         
-        var correctIndex = idList[reviewProgressCount]
-        print(idList)
+        correctIndex = idList[reviewProgressCount]
         
-        var randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+        randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
         prepareQuestion(id: correctIndex, choices: randChoice)
 
         
@@ -67,12 +68,22 @@ class ReviewView : UIViewController {
     @IBAction func button1(_ sender: UIButton) {
         if button1label.titleLabel?.text == correctChoice {
             reviewProgressCount += 1
-            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
-            //prepareQuestion(reviewProgressCount, )
+            
+            // if review still hasn't ended
+            if reviewProgressCount != totalReview {
+                
+                correctIndex = idList[reviewProgressCount]
+                randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+                
+                prepareQuestion(id: correctIndex, choices: randChoice)
+            }
+            else {
+                finishReview()
+            }
         }
         else {
             // should move to the question to the end?
-            // show pop up to
+            // this what happens if player clicked wrong
         }
     }
     
@@ -80,7 +91,19 @@ class ReviewView : UIViewController {
         if button2label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
             reviewProgressCount += 1
-            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
+            
+            // if review still hasn't ended
+            if reviewProgressCount != totalReview {
+                
+                correctIndex = idList[reviewProgressCount]
+                randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+                
+                prepareQuestion(id: correctIndex, choices: randChoice)
+            }
+            else {
+                finishReview()
+            }
+
         }
         else {
             // should move to the question to the end?
@@ -91,7 +114,19 @@ class ReviewView : UIViewController {
     @IBAction func button3(_ sender: UIButton) {
         if button3label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
-            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
+            reviewProgressCount += 1
+            
+            // if review still hasn't ended
+            if reviewProgressCount != totalReview {
+                
+                correctIndex = idList[reviewProgressCount]
+                randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+                
+                prepareQuestion(id: correctIndex, choices: randChoice)
+            }
+            else {
+                finishReview()
+            }
         }
         else {
             // should move to the question to the end?
@@ -102,7 +137,20 @@ class ReviewView : UIViewController {
     @IBAction func button4(_ sender: UIButton) {
         if button4label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
-            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
+            reviewProgressCount += 1
+            
+            // if review still hasn't ended
+            if reviewProgressCount != totalReview {
+                
+                correctIndex = idList[reviewProgressCount]
+                randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+                
+                prepareQuestion(id: correctIndex, choices: randChoice)
+            }
+            else {
+                finishReview()
+            }
+
         }
         else {
             // should move to the question to the end?
@@ -113,7 +161,19 @@ class ReviewView : UIViewController {
     @IBAction func button5(_ sender: Any) {
         if button5label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
-            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
+            reviewProgressCount += 1
+            
+            // if review still hasn't ended
+            if reviewProgressCount != totalReview {
+                
+                correctIndex = idList[reviewProgressCount]
+                randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+                
+                prepareQuestion(id: correctIndex, choices: randChoice)
+            }
+            else {
+                finishReview()
+            }
         }
         else {
             // should move to the question to the end?
@@ -124,12 +184,28 @@ class ReviewView : UIViewController {
     @IBAction func button6(_ sender: UIButton) {
         if button6label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
-            performSegue(withIdentifier: "toDeckView", sender: Any?.self)
+            reviewProgressCount += 1
+            
+            // if review still hasn't ended
+            if reviewProgressCount != totalReview {
+                
+                correctIndex = idList[reviewProgressCount]
+                randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+                
+                prepareQuestion(id: correctIndex, choices: randChoice)
+            }
+            else {
+                finishReview()
+            }
         }
         else {
             // should move to the question to the end?
             // show pop up to
         }
+    }
+    
+    func finishReview() {
+        performSegue(withIdentifier: "toDeckView", sender: Any?.self)
     }
     
     func prepareQuestion(id: Int, choices: [String]) {
