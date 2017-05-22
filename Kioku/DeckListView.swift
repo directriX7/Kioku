@@ -139,7 +139,55 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         
     }
     
-
+    func countAllCardsFromUser(username: String) -> Int {
+        var count = 0
+        
+        let querySQL = "SELECT COUNT(*) AS CARDCOUNT FROM USERPROGRESS WHERE USERNAME = '\(username)'"
+        
+        let result = db.QueryDBWithRequestString(sql: querySQL)
+        
+        if result?.next() == true {
+            count = Int((result?.int(forColumn: "CARDCOUNT"))!)
+        }
+        
+        return count
+        
+        
+    }
+    
+    func checkForReviews(username: String) {
+        
+        let dF = DateFormatter()
+        let cardCount = countAllCardsFromUser(username: self.username)
+        
+        let querySQL = "SELECT LASTDATE, DECKID FROM USERPROGRESS WHERE USERNAME = '\(username)'"
+        let results = db.QueryDBWithRequestString(sql: querySQL)
+        
+        while results?.next() == true {
+            let date = results?.string(forColumn: "LASTDATE")
+            let deckID = results?.string(forColumn: "DECKID")
+            
+            
+            if (Date() > dF.date(from: date)) {
+                changeReviewState(user: self.username, deckID: self.deckID)
+            }
+        }
+        
+        
+    }
+    
+    func changeReviewState(user: String, deckID: String) {
+        
+        let updateSQL = "UPDATE USERPROGRESS SET TOREVIEW = 'YES' WHERE USERNAME = '\(user)' AND DECKID = '\(deckID)'"
+        let execStatement = db.UpdateDBWithRequestString(sql: updateSQL)
+        
+        if (execStatement) {
+            print("change review state success")
+        }
+        else {
+            print("something went wrong")
+        }
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int

@@ -100,7 +100,7 @@ class ViewController: UIViewController {
                     print("user deck reference table create success")
                 }
                 
-                create = "CREATE TABLE IF NOT EXISTS USERPROGRESS(USERNAME TEXT, DECK TEXT, DECKID TEXT, LEARNED TEXT, TOREVIEW TEXT)"
+                create = "CREATE TABLE IF NOT EXISTS USERPROGRESS(USERNAME TEXT, DECK TEXT, DECKID TEXT, LEARNED TEXT, TOREVIEW TEXT, LASTDATE TEXT)"
                 
                 if !(contactDB?.executeStatements(create))!{
                     print("Error: \(String(describing: contactDB?.lastErrorMessage()))")
@@ -108,6 +108,7 @@ class ViewController: UIViewController {
                 else{
                     print("user deck reference table create success")
                 }
+                
                 
                 contactDB?.close()
             } else {
