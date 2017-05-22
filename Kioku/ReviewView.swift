@@ -28,7 +28,10 @@ class ReviewView : UIViewController {
     
     @IBOutlet weak var defLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
+    var alertController: UIAlertController!
+    var defaultAction: UIAlertAction!
     
+
     
     
     override func viewDidLoad() {
@@ -84,6 +87,22 @@ class ReviewView : UIViewController {
         else {
             // should move to the question to the end?
             // this what happens if player clicked wrong
+            
+            // place alert here
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            
+            placeWrongAnswerToEndQueue()
+            
+            correctIndex = idList[reviewProgressCount]
+            randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+            
+            prepareQuestion(id: correctIndex, choices: randChoice)
+            
+            
         }
     }
     
@@ -106,8 +125,19 @@ class ReviewView : UIViewController {
 
         }
         else {
-            // should move to the question to the end?
-            // show pop up to
+            // place alert here
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            
+            placeWrongAnswerToEndQueue()
+            
+            correctIndex = idList[reviewProgressCount]
+            randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+            
+            prepareQuestion(id: correctIndex, choices: randChoice)
         }
     }
     
@@ -129,8 +159,19 @@ class ReviewView : UIViewController {
             }
         }
         else {
-            // should move to the question to the end?
-            // show pop up to
+            // place alert here
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            
+            placeWrongAnswerToEndQueue()
+            
+            correctIndex = idList[reviewProgressCount]
+            randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+            
+            prepareQuestion(id: correctIndex, choices: randChoice)
         }
     }
     
@@ -153,8 +194,19 @@ class ReviewView : UIViewController {
 
         }
         else {
-            // should move to the question to the end?
-            // show pop up to
+            // place alert here
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            
+            placeWrongAnswerToEndQueue()
+            
+            correctIndex = idList[reviewProgressCount]
+            randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+            
+            prepareQuestion(id: correctIndex, choices: randChoice)
         }
     }
     
@@ -176,9 +228,19 @@ class ReviewView : UIViewController {
             }
         }
         else {
-            // should move to the question to the end?
-            // show pop up to
-        }
+            // place alert here
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            
+            placeWrongAnswerToEndQueue()
+            
+            correctIndex = idList[reviewProgressCount]
+            randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+            
+            prepareQuestion(id: correctIndex, choices: randChoice)        }
     }
     
     @IBAction func button6(_ sender: UIButton) {
@@ -199,8 +261,19 @@ class ReviewView : UIViewController {
             }
         }
         else {
-            // should move to the question to the end?
-            // show pop up to
+            // place alert here
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            
+            placeWrongAnswerToEndQueue()
+            
+            correctIndex = idList[reviewProgressCount]
+            randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+            
+            prepareQuestion(id: correctIndex, choices: randChoice)
         }
     }
     
@@ -208,10 +281,23 @@ class ReviewView : UIViewController {
         performSegue(withIdentifier: "toDeckView", sender: Any?.self)
     }
     
+    func placeWrongAnswerToEndQueue() {
+        
+        // user chooses wrong answer
+        // progress doesn't move forward
+        // user has to review "again"
+        // the wrong answer will be placed at the end of the review queue
+        let temp = idList[reviewProgressCount]
+        idList.remove(at: reviewProgressCount)
+        idList.append(temp)
+
+    }
+    
     func prepareQuestion(id: Int, choices: [String]) {
         var word: String
         var def: String = "test"
-        // dirty way of shuffling choices
+        
+        // dirty way of shuffling choices, check the extension at the very bottom
         var buttonArray = ["button1", "button2", "button3", "button4", "button5", "button6"].shuffled()
         
         word = getWordtoReview(deckID: "\(deckName)\(id)")
