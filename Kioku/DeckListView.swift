@@ -247,7 +247,7 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     
     @IBAction func learnButton(_ sender: UIButton) {
         if (checkIfNeedLearn(username: self.username, deck: decknameLabel.text!)) {
-            performSegue(withIdentifier: "addDeck", sender: Any?.self)
+            
         }
         else {
             let alertController = UIAlertController(title: "No Words to Learn", message: "There are no more words to learn!", preferredStyle: .alert)
