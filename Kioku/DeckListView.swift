@@ -18,6 +18,8 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var toreviewLabel: UILabel!
     @IBOutlet weak var decksTable: UITableView!
     
+    @IBOutlet weak var learnButtonLabel: UIButton!
+    @IBOutlet weak var reviewButtonLabel: UIButton!
     let db = FMDBDataModel()
     
     let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
@@ -32,6 +34,12 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         decksTable.dataSource = self
         self.decksTable.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
         refreshData()
+        deckdescLabel.isHidden = true
+        wordcountLabel.isHidden = true
+        wordslearnedLabel.isHidden = true
+        toreviewLabel.isHidden = true
+        learnButtonLabel.isHidden = true
+        reviewButtonLabel.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -207,7 +215,13 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        let cellName = cell?.textLabel?.text	
+        let cellName = cell?.textLabel?.text
+        deckdescLabel.isHidden = false
+        wordcountLabel.isHidden = false
+        wordslearnedLabel.isHidden = false
+        toreviewLabel.isHidden = false
+        learnButtonLabel.isHidden = false
+        reviewButtonLabel.isHidden = false
         
         let totalWordCount = retrieveWordCount(deck: cellName!)
         

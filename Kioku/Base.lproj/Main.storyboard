@@ -68,7 +68,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGM-u5-ZcC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="162.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gl4-MD-iQC">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gl4-MD-iQC">
                                         <rect key="frame" x="20" y="31" width="335" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="cIb-hQ-vEc"/>
@@ -565,7 +565,7 @@
                                 <rect key="frame" x="143" y="64" width="232" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deck Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-UR-inh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please select a Deck." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-UR-inh">
                                         <rect key="frame" x="8" y="8" width="216" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -667,6 +667,8 @@
                         <outlet property="deckdescLabel" destination="gLt-Oh-DuV" id="XL6-yx-8QN"/>
                         <outlet property="decknameLabel" destination="XLp-UR-inh" id="NSa-JD-Rc7"/>
                         <outlet property="decksTable" destination="nvz-7e-o5V" id="9iw-lK-NlO"/>
+                        <outlet property="learnButtonLabel" destination="b9J-Ry-8ub" id="H5U-Ua-4lI"/>
+                        <outlet property="reviewButtonLabel" destination="U54-Ri-Zmn" id="eAq-2V-EWY"/>
                         <outlet property="toreviewLabel" destination="J5h-ga-lvs" id="koo-Xg-yRq"/>
                         <outlet property="wordcountLabel" destination="25B-qY-FUv" id="HL2-U3-E6E"/>
                         <outlet property="wordslearnedLabel" destination="jBJ-Xn-stZ" id="3CM-H2-Dc5"/>
@@ -995,9 +997,9 @@
     </scenes>
     <resources>
         <image name="ico_check" width="30" height="30"/>
-        <image name="img_logo" width="16" height="16"/>
+        <image name="logo" width="750" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1DW-CN-Wqd"/>
+        <segue reference="VbH-ng-dt5"/>
     </inferredMetricsTieBreakers>
 </document>
