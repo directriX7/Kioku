@@ -167,10 +167,12 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
             let date = results?.string(forColumn: "LASTDATE")
             let deckID = results?.string(forColumn: "DECKID")
             
-            
-            if (Date() > dF.date(from: date!)!) {
+            // -86400.0 means one day
+            // if greater than one day, then card needs to be reviewed!
+            if (Double((dF.date(from: date!)?.timeIntervalSinceNow)!) > -86400.0) {
                 changeReviewState(user: self.username, deckID: deckID!)
             }
+            
         }
         
         
