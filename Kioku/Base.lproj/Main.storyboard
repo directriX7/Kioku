@@ -587,6 +587,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Learn"/>
                                         <connections>
+                                            <action selector="learnButton:" destination="rWF-Np-4DP" eventType="touchUpInside" id="o4a-qL-Rh5"/>
                                             <segue destination="hEo-Fq-VNR" kind="show" identifier="toLearn" id="6pF-KY-tdN"/>
                                         </connections>
                                     </button>
@@ -976,6 +977,6 @@
         <image name="img_logo" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VbH-ng-dt5"/>
+        <segue reference="1DW-CN-Wqd"/>
     </inferredMetricsTieBreakers>
 </document>

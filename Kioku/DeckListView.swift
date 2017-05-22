@@ -124,6 +124,21 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         
     }
     
+    func checkIfNeedLearn(username: String, deck: String) -> Bool {
+        
+        let querySQL = "SELECT LEARNED FROM USERPROGRESS WHERE USERNAME = '\(username)' AND DECK = '\(deck)' AND LEARNED = 'NO'"
+        
+        let result = db.QueryDBWithRequestString(sql: querySQL)
+        
+        if result?.next() == true {
+            return true
+        }
+        else {
+            return false
+        }
+        
+    }
+    
 
     
     
@@ -182,6 +197,21 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         
     }
     
+    @IBAction func learnButton(_ sender: UIButton) {
+        if (checkIfNeedLearn(username: self.username, deck: decknameLabel.text!)) {
+            performSegue(withIdentifier: "addDeck", sender: Any?.self)
+        }
+        else {
+            let alertController = UIAlertController(title: "No Words to Learn", message: "There are no more words to learn!", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler:  { (UIAlertAction) in
+            })
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion:{
+                
+            })
+
+        }
+    }
     
     
     

@@ -31,9 +31,6 @@ class ReviewView : UIViewController {
     var alertController: UIAlertController!
     var defaultAction: UIAlertAction!
     
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,7 +86,7 @@ class ReviewView : UIViewController {
             // this what happens if player clicked wrong
             
             // place alert here
-            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
             alertController.addAction(defaultAction)

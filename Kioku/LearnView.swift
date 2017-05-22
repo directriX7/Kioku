@@ -104,7 +104,7 @@ class LearnView : UIViewController {
         {
             let alertController = UIAlertController(title: "Congratulation!", message: "You have learned \(size) of words", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction!) in
-            // sugeu to deck menu 
+            // segue to deck menu
             // update before segue
                 self.updateLearned(deck: self.deckname, user: self.username)
                self.navigationController?.popViewController(animated: true)
