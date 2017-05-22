@@ -126,7 +126,7 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
-            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
             alertController.addAction(defaultAction)
@@ -161,7 +161,7 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
-            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
             alertController.addAction(defaultAction)
@@ -197,7 +197,7 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
-            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
             alertController.addAction(defaultAction)
@@ -232,7 +232,7 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
-            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
             alertController.addAction(defaultAction)
@@ -266,7 +266,7 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
-            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
             alertController.addAction(defaultAction)

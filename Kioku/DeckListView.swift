@@ -265,6 +265,22 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
+    @IBAction func reviewButton(_ sender: UIButton) {
+        if (retrieveWordstoReviewCount(username: self.username, deck: decknameLabel.text!) > 0) {
+            
+        }
+        else {
+            let alertController = UIAlertController(title: "No Words to Review", message: "There are no more words to review! Please check back again another day!", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler:  { (UIAlertAction) in
+            })
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion:{
+                
+            })
+            
+        }
+
+    }
     
     //MARK: Navigation
     

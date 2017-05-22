@@ -614,6 +614,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Review"/>
                                         <connections>
+                                            <action selector="reviewButton:" destination="rWF-Np-4DP" eventType="touchUpInside" id="SWh-xP-9fB"/>
                                             <segue destination="UxF-jL-wmt" kind="show" identifier="toReview" id="aU9-c9-iNM"/>
                                         </connections>
                                     </button>
