@@ -947,9 +947,11 @@
                         <outlet property="defLabel" destination="zVB-kf-09n" id="at7-BW-ri5"/>
                         <outlet property="progress" destination="WIm-5Z-npX" id="yCX-Bi-nq2"/>
                         <outlet property="wordLabel" destination="MO7-67-vZu" id="ura-IH-2nT"/>
+                        <segue destination="67k-pu-ZI2" kind="unwind" identifier="toDeckList" unwindAction="unwindToDeckListWithSegue:" id="6Jo-Tq-BdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41Y-Mz-fYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="67k-pu-ZI2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-2436" y="-794"/>
         </scene>

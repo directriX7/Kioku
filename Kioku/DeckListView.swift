@@ -26,6 +26,8 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkForReviews(username: self.username)
+        
         decksTable.delegate = self
         decksTable.dataSource = self
         self.decksTable.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
@@ -158,9 +160,9 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     func checkForReviews(username: String) {
         
         let dF = DateFormatter()
-        let cardCount = countAllCardsFromUser(username: self.username)
+
         
-        let querySQL = "SELECT LASTDATE, DECKID FROM USERPROGRESS WHERE USERNAME = '\(username)'"
+        let querySQL = "SELECT LASTDATE, DECKID FROM USERPROGRESS WHERE USERNAME = '\(username)' AND TOREVIEW = 'NO' AND LEARNED = 'YES'"
         let results = db.QueryDBWithRequestString(sql: querySQL)
         
         while results?.next() == true {
@@ -262,8 +264,6 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
 
         }
     }
-    
-    
     
     
     //MARK: Navigation

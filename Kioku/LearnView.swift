@@ -107,12 +107,12 @@ class LearnView : UIViewController {
             // segue to deck menu
             // update before segue
                 self.updateLearned(deck: self.deckname, user: self.username)
-               self.navigationController?.popViewController(animated: true)
-                
+                self.performSegue(withIdentifier: "toDeckList", sender: Any?.self)
             })
             
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
+            
         }
         else
         {
