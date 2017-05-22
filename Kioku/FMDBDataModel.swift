@@ -73,6 +73,16 @@ class FMDBDataModel : NSObject {
             else {
                 print("Userdeck truncate error")
             }
+            delSQL = "DELETE FROM USERPROGRESS"
+            delete = contactDB.executeUpdate(delSQL, withArgumentsIn: nil)
+            
+            
+            if delete {
+                print("Userprogress truncate success")
+            }
+            else {
+                print("Userprogress truncate error")
+            }
         }
         contactDB.close()
     }

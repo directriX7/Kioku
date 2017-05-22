@@ -156,11 +156,14 @@ class AddWordsView : UIViewController {
             
             if (word.text!.characters.count > 0 ||
                 desc.text!.characters.count > 0) {
-                addedWordsCount += 1
+                
                 
                 if (!saveWord(word: word.text!, def: desc.text!, deck: deckName)) {
                     success = false
                     break;
+                }
+                else {
+                    addedWordsCount += 1
                 }
             }
         }
