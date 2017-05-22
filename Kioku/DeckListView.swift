@@ -26,7 +26,7 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkForReviews(username: self.username)
+        checkForReviews(username: username)
         
         decksTable.delegate = self
         decksTable.dataSource = self
@@ -160,9 +160,9 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     func checkForReviews(username: String) {
         
         let dF = DateFormatter()
-
+        dF.dateFormat = "YYYY-MM-dd"
         
-        let querySQL = "SELECT LASTDATE, DECKID FROM USERPROGRESS WHERE USERNAME = '\(username)' AND TOREVIEW = 'NO' AND LEARNED = 'YES' AND LASTDATE != NULL"
+        let querySQL = "SELECT LASTDATE, DECKID FROM USERPROGRESS WHERE USERNAME = '\(username)' AND TOREVIEW = 'NO' AND LEARNED = 'YES' AND LASTDATE != ''"
         let results = db.QueryDBWithRequestString(sql: querySQL)
         
         while results?.next() == true {
@@ -171,7 +171,7 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
             
             // -86400.0 means one day
             // if greater than one day, then card needs to be reviewed!
-            if (Double((dF.date(from: date!)?.timeIntervalSinceNow)!) > -86400.0) {
+            if (Double((dF.date(from: date!)?.timeIntervalSinceNow)!) < -86400.0) {
                 changeReviewState(user: self.username, deckID: deckID!)
             }
             
