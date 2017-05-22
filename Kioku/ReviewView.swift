@@ -34,9 +34,12 @@ class ReviewView : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         idList = getIDstoReview(user: username, deck: deckName)
         totalReview = reviewCount(user: username, deck: deckName)
         
+        progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
         
         correctIndex = idList[reviewProgressCount]
         
@@ -70,6 +73,7 @@ class ReviewView : UIViewController {
             
             updateStatusToReviewed()
             reviewProgressCount += 1
+            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -110,6 +114,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
+            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -146,6 +151,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
+            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -181,6 +187,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
+            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -217,6 +224,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
+            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
@@ -251,6 +259,7 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
+            progressLabel.text = "\(reviewProgressCount))/\(totalReview) words reviewed"
             
             // if review still hasn't ended
             if reviewProgressCount != totalReview {
