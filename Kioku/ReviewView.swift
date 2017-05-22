@@ -67,6 +67,8 @@ class ReviewView : UIViewController {
     //MARK: ButtonFunctions
     @IBAction func button1(_ sender: UIButton) {
         if button1label.titleLabel?.text == correctChoice {
+            
+            updateStatusToReviewed()
             reviewProgressCount += 1
             
             // if review still hasn't ended
@@ -106,6 +108,7 @@ class ReviewView : UIViewController {
     @IBAction func button2(_ sender: UIButton) {
         if button2label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            updateStatusToReviewed()
             reviewProgressCount += 1
             
             // if review still hasn't ended
@@ -141,6 +144,7 @@ class ReviewView : UIViewController {
     @IBAction func button3(_ sender: UIButton) {
         if button3label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            updateStatusToReviewed()
             reviewProgressCount += 1
             
             // if review still hasn't ended
@@ -175,6 +179,7 @@ class ReviewView : UIViewController {
     @IBAction func button4(_ sender: UIButton) {
         if button4label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            updateStatusToReviewed()
             reviewProgressCount += 1
             
             // if review still hasn't ended
@@ -210,6 +215,7 @@ class ReviewView : UIViewController {
     @IBAction func button5(_ sender: Any) {
         if button5label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            updateStatusToReviewed()
             reviewProgressCount += 1
             
             // if review still hasn't ended
@@ -243,6 +249,7 @@ class ReviewView : UIViewController {
     @IBAction func button6(_ sender: UIButton) {
         if button6label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            updateStatusToReviewed()
             reviewProgressCount += 1
             
             // if review still hasn't ended
@@ -271,6 +278,20 @@ class ReviewView : UIViewController {
             randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
             
             prepareQuestion(id: correctIndex, choices: randChoice)
+        }
+    }
+    func updateStatusToReviewed() {
+        
+        let deckID = "\(deckName)\(idList[reviewProgressCount])"
+        let updateSQL = "UPDATE USERPROGRESS SET TOREVIEW = 'NO' WHERE USERNAME = '\(username)' AND DECKID = '\(deckID)'"
+        
+        let execStatement = db.UpdateDBWithRequestString(sql: updateSQL)
+        
+        if (execStatement)! {
+            print("review update success")
+        }
+        else {
+            print("review update failed")
         }
     }
     
