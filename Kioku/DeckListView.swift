@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -20,7 +21,9 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     
     @IBOutlet weak var learnButtonLabel: UIButton!
     @IBOutlet weak var reviewButtonLabel: UIButton!
+    
     let db = FMDBDataModel()
+    var player: AVAudioPlayer?
     
     let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
     var userDecks = [String]()
@@ -49,6 +52,21 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         reviewButtonLabel.layer.borderColor = UIColor (red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0).cgColor
         reviewButtonLabel.layer.borderWidth = 2.0
 
+    }
+    
+    func playSound() {
+        // Fetch the Sound data set.
+        if let asset = NSDataAsset(name:"Click"){
+            
+            do {
+                // Use NSDataAsset's data property to access the audio file stored in Sound.
+                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
+                // Play the above sound file.
+                player?.play()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -273,6 +291,7 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     @IBAction func learnButton(_ sender: UIButton) {
+        playSound()
         if (checkIfNeedLearn(username: self.username, deck: decknameLabel.text!)) {
             
         }
@@ -289,7 +308,7 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     @IBAction func reviewButton(_ sender: UIButton) {
-        
+        playSound()
         if (retrieveWordstoReviewCount(username: self.username, deck: decknameLabel.text!) > 0) {
             performSegue(withIdentifier: "toReview", sender: Any?.self)
         }

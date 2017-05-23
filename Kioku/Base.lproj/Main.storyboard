@@ -938,10 +938,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmi-kP-ylY">
-                                <rect key="frame" x="194" y="328" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmi-kP-ylY">
+                                <rect key="frame" x="179" y="273" width="77" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="IqG-4v-aPq"/>
+                                    <constraint firstAttribute="height" constant="44" id="a2B-Eo-gQQ"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="Nextq:" destination="hEo-Fq-VNR" eventType="touchUpInside" id="m3B-xH-VK8"/>
                                 </connections>
@@ -972,6 +978,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="defLabel" destination="zVB-kf-09n" id="at7-BW-ri5"/>
+                        <outlet property="nextButtonLabel" destination="Pmi-kP-ylY" id="3nn-bY-FXF"/>
                         <outlet property="progress" destination="WIm-5Z-npX" id="yCX-Bi-nq2"/>
                         <outlet property="wordLabel" destination="MO7-67-vZu" id="ura-IH-2nT"/>
                         <segue destination="67k-pu-ZI2" kind="unwind" identifier="toDeckList" unwindAction="unwindToDeckListWithSegue:" id="6Jo-Tq-BdJ"/>
@@ -980,7 +987,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41Y-Mz-fYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="67k-pu-ZI2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2436" y="-794"/>
+            <point key="canvasLocation" x="-2436" y="-794.75262368815595"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tqw-4A-gfi">

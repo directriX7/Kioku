@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class LearnView : UIViewController {
     
@@ -18,16 +19,20 @@ class LearnView : UIViewController {
     var defn = [String]()
     var size = 0
     var numProg = 0
-    
+    var player: AVAudioPlayer?
     var temp = 0
     
     @IBOutlet weak var progress: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var defLabel: UILabel!
+    @IBOutlet weak var nextButtonLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nextButtonLabel.layer.cornerRadius = nextButtonLabel.frame.size.height/2
+        nextButtonLabel.layer.borderColor = UIColor (red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0).cgColor
+        nextButtonLabel.layer.borderWidth = 2.0
         temp = learnCount(deck: deckname, user: username)
         progress.text = " \(numProg+1)/\(temp)"
         WordsNotLearned(deck: deckname,Username: username, defn: &defn, term: &term)
@@ -42,6 +47,20 @@ class LearnView : UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func playSound() {
+        // Fetch the Sound data set.
+        if let asset = NSDataAsset(name:"Click"){
+            
+            do {
+                // Use NSDataAsset's data property to access the audio file stored in Sound.
+                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
+                // Play the above sound file.
+                player?.play()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
     let db = FMDBDataModel()
     // main logic
     
@@ -97,7 +116,7 @@ class LearnView : UIViewController {
     
     @IBAction func Nextq(_ sender: UIButton)
     {
-     
+     playSound()
         
         if numProg+1 >= size
         // disable next

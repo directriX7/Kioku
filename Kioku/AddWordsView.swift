@@ -9,10 +9,13 @@
 import Foundation
 import UIKit
 import TextFieldEffects
+import AVFoundation
+
 
 class AddWordsView : UIViewController {
     
     @IBOutlet weak var wordsStackView: UIStackView!
+    var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,20 @@ class AddWordsView : UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func playSound() {
+        // Fetch the Sound data set.
+        if let asset = NSDataAsset(name:"Click"){
+            
+            do {
+                // Use NSDataAsset's data property to access the audio file stored in Sound.
+                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
+                // Play the above sound file.
+                player?.play()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
     // Count the words inside the deck for ID Tag
     func countIdFromDeck(deckName: String) -> Int {
         var count = 0
@@ -104,6 +121,7 @@ class AddWordsView : UIViewController {
     
     @IBAction func addButton(_ sender: UIButton) {
         
+        playSound()
         /*let instanceCount = wordFieldList.count
         let WORD_NEWYCOORD : Double = WORD_YCOORD + (45.0 * Double(instanceCount))
         
@@ -146,6 +164,7 @@ class AddWordsView : UIViewController {
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
+        playSound()
         var success = true
         var addedWordsCount = 0
         

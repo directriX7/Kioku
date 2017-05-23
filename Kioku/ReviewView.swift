@@ -24,7 +24,7 @@ class ReviewView : UIViewController {
     var reviewProgressCount: Int = 0
     var correctIndex: Int = 0
     var randChoice = [String]()
-    
+    var player: AVAudioPlayer?
     
     
     
@@ -35,8 +35,6 @@ class ReviewView : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         idList = getIDstoReview(user: username, deck: deckName)
         totalReview = reviewCount(user: username, deck: deckName)
@@ -58,7 +56,20 @@ class ReviewView : UIViewController {
     let db = FMDBDataModel()
     // main logic
     
-    
+    func playSound() {
+        // Fetch the Sound data set.
+        if let asset = NSDataAsset(name:"Click"){
+            
+            do {
+                // Use NSDataAsset's data property to access the audio file stored in Sound.
+                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
+                // Play the above sound file.
+                player?.play()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
 
     @IBOutlet weak var button1label: UIButton!
     @IBOutlet weak var button2label: UIButton!
@@ -71,6 +82,8 @@ class ReviewView : UIViewController {
     //MARK:
     //MARK: ButtonFunctions
     @IBAction func button1(_ sender: UIButton) {
+        playSound()
+        
         let deadlineTime = DispatchTime.now() + .seconds(1)
         if button1label.titleLabel?.text == correctChoice {
             
@@ -120,7 +133,8 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button2(_ sender: UIButton) {
-        
+        playSound()
+
         let deadlineTime = DispatchTime.now() + .seconds(1)
         
         if button2label.titleLabel?.text == correctChoice {
@@ -171,6 +185,8 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button3(_ sender: UIButton) {
+        playSound()
+
         let deadlineTime = DispatchTime.now() + .seconds(1)
         if button3label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
@@ -218,6 +234,8 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button4(_ sender: UIButton) {
+        playSound()
+
         let deadlineTime = DispatchTime.now() + .seconds(1)
         
         if button4label.titleLabel?.text == correctChoice {
@@ -267,6 +285,8 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button5(_ sender: Any) {
+        playSound()
+
         let deadlineTime = DispatchTime.now() + .seconds(1)
         
         if button5label.titleLabel?.text == correctChoice {
@@ -316,6 +336,8 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button6(_ sender: UIButton) {
+        playSound()
+
         let deadlineTime = DispatchTime.now() + .seconds(1)
         
         if button6label.titleLabel?.text == correctChoice {
