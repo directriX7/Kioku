@@ -23,7 +23,7 @@ class ReviewView : UIViewController {
     var reviewProgressCount: Int = 0
     var correctIndex: Int = 0
     var randChoice = [String]()
-    let deadlineTime = DispatchTime.now() + .seconds(1)
+    
     
     
     
@@ -70,6 +70,7 @@ class ReviewView : UIViewController {
     //MARK:
     //MARK: ButtonFunctions
     @IBAction func button1(_ sender: UIButton) {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
         if button1label.titleLabel?.text == correctChoice {
             
             updateStatusToReviewed()
@@ -118,8 +119,14 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button2(_ sender: UIButton) {
+        
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        
         if button2label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            
+            
+            
             updateStatusToReviewed()
             reviewProgressCount += 1
             button2label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
@@ -163,10 +170,12 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button3(_ sender: UIButton) {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
         if button3label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
             button3label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
             button3label.layer.borderWidth = 2.0
+            
             updateStatusToReviewed()
             reviewProgressCount += 1
             progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
@@ -208,6 +217,8 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button4(_ sender: UIButton) {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        
         if button4label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
             
@@ -255,10 +266,13 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button5(_ sender: Any) {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        
         if button5label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
             button5label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
             button5label.layer.borderWidth = 2.0
+            
             
             updateStatusToReviewed()
             reviewProgressCount += 1
@@ -301,7 +315,10 @@ class ReviewView : UIViewController {
     }
     
     @IBAction func button6(_ sender: UIButton) {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        
         if button6label.titleLabel?.text == correctChoice {
+            
             // move on to next question call prepareQuestion
             button6label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
             button6label.layer.borderWidth = 2.0
@@ -315,6 +332,7 @@ class ReviewView : UIViewController {
                 
                 correctIndex = idList[reviewProgressCount]
                 randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
+                
                 
                 DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
                     self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
