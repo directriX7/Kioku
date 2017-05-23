@@ -23,6 +23,7 @@ class ReviewView : UIViewController {
     var reviewProgressCount: Int = 0
     var correctIndex: Int = 0
     var randChoice = [String]()
+    let deadlineTime = DispatchTime.now() + .seconds(1)
     
     
     
@@ -73,6 +74,8 @@ class ReviewView : UIViewController {
             
             updateStatusToReviewed()
             reviewProgressCount += 1
+            button1label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
+            button1label.layer.borderWidth = 2.0
             progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
             
             // if review still hasn't ended
@@ -81,7 +84,9 @@ class ReviewView : UIViewController {
                 correctIndex = idList[reviewProgressCount]
                 randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
                 
-                prepareQuestion(id: correctIndex, choices: randChoice)
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+                }
             }
             else {
                 finishReview()
@@ -90,7 +95,8 @@ class ReviewView : UIViewController {
         else {
             // should move to the question to the end?
             // this what happens if player clicked wrong
-            
+            button1label.layer.borderColor = UIColor (red: 229/255.0, green: 57/255.0, blue: 54/255.0, alpha: 1.0).cgColor
+            button1label.layer.borderWidth = 2.0
             // place alert here
             alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -103,7 +109,9 @@ class ReviewView : UIViewController {
             correctIndex = idList[reviewProgressCount]
             randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
             
-            prepareQuestion(id: correctIndex, choices: randChoice)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+            }
             
             
         }
@@ -114,6 +122,8 @@ class ReviewView : UIViewController {
             // move on to next question call prepareQuestion
             updateStatusToReviewed()
             reviewProgressCount += 1
+            button2label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
+            button2label.layer.borderWidth = 2.0
             progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
             
             // if review still hasn't ended
@@ -122,7 +132,9 @@ class ReviewView : UIViewController {
                 correctIndex = idList[reviewProgressCount]
                 randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
                 
-                prepareQuestion(id: correctIndex, choices: randChoice)
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+                }
             }
             else {
                 finishReview()
@@ -131,6 +143,8 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
+            button2label.layer.borderColor = UIColor (red: 229/255.0, green: 57/255.0, blue: 54/255.0, alpha: 1.0).cgColor
+            button2label.layer.borderWidth = 2.0
             alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
@@ -142,13 +156,17 @@ class ReviewView : UIViewController {
             correctIndex = idList[reviewProgressCount]
             randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
             
-            prepareQuestion(id: correctIndex, choices: randChoice)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+            }
         }
     }
     
     @IBAction func button3(_ sender: UIButton) {
         if button3label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            button3label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
+            button3label.layer.borderWidth = 2.0
             updateStatusToReviewed()
             reviewProgressCount += 1
             progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
@@ -159,7 +177,9 @@ class ReviewView : UIViewController {
                 correctIndex = idList[reviewProgressCount]
                 randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
                 
-                prepareQuestion(id: correctIndex, choices: randChoice)
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+                }
             }
             else {
                 finishReview()
@@ -167,6 +187,9 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
+            button3label.layer.borderColor = UIColor (red: 229/255.0, green: 57/255.0, blue: 54/255.0, alpha: 1.0).cgColor
+            button3label.layer.borderWidth = 2.0
+            
             alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
@@ -178,13 +201,19 @@ class ReviewView : UIViewController {
             correctIndex = idList[reviewProgressCount]
             randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
             
-            prepareQuestion(id: correctIndex, choices: randChoice)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+            }
         }
     }
     
     @IBAction func button4(_ sender: UIButton) {
         if button4label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            
+            button4label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
+            button4label.layer.borderWidth = 2.0
+            
             updateStatusToReviewed()
             reviewProgressCount += 1
             progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
@@ -195,8 +224,9 @@ class ReviewView : UIViewController {
                 correctIndex = idList[reviewProgressCount]
                 randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
                 
-                prepareQuestion(id: correctIndex, choices: randChoice)
-            }
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+                }            }
             else {
                 finishReview()
             }
@@ -204,6 +234,9 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
+            button4label.layer.borderColor = UIColor (red: 229/255.0, green: 57/255.0, blue: 54/255.0, alpha: 1.0).cgColor
+            button4label.layer.borderWidth = 2.0
+            
             alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
@@ -215,13 +248,18 @@ class ReviewView : UIViewController {
             correctIndex = idList[reviewProgressCount]
             randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
             
-            prepareQuestion(id: correctIndex, choices: randChoice)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+            }
         }
     }
     
     @IBAction func button5(_ sender: Any) {
         if button5label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            button5label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
+            button5label.layer.borderWidth = 2.0
+            
             updateStatusToReviewed()
             reviewProgressCount += 1
             progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
@@ -232,7 +270,9 @@ class ReviewView : UIViewController {
                 correctIndex = idList[reviewProgressCount]
                 randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
                 
-                prepareQuestion(id: correctIndex, choices: randChoice)
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+                }
             }
             else {
                 finishReview()
@@ -240,6 +280,9 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
+            button5label.layer.borderColor = UIColor (red: 229/255.0, green: 57/255.0, blue: 54/255.0, alpha: 1.0).cgColor
+            button5label.layer.borderWidth = 2.0
+            
             alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
@@ -251,12 +294,18 @@ class ReviewView : UIViewController {
             correctIndex = idList[reviewProgressCount]
             randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
             
-            prepareQuestion(id: correctIndex, choices: randChoice)        }
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+            }
+        }
     }
     
     @IBAction func button6(_ sender: UIButton) {
         if button6label.titleLabel?.text == correctChoice {
             // move on to next question call prepareQuestion
+            button6label.layer.borderColor = UIColor (red: 104/255.0, green: 196/255.0, blue: 115/255.0, alpha: 1.0).cgColor
+            button6label.layer.borderWidth = 2.0
+            
             updateStatusToReviewed()
             reviewProgressCount += 1
             progressLabel.text = "\(reviewProgressCount)/\(totalReview) words reviewed"
@@ -267,7 +316,9 @@ class ReviewView : UIViewController {
                 correctIndex = idList[reviewProgressCount]
                 randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
                 
-                prepareQuestion(id: correctIndex, choices: randChoice)
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+                }
             }
             else {
                 finishReview()
@@ -275,6 +326,9 @@ class ReviewView : UIViewController {
         }
         else {
             // place alert here
+            button6label.layer.borderColor = UIColor (red: 229/255.0, green: 57/255.0, blue: 54/255.0, alpha: 1.0).cgColor
+            button6label.layer.borderWidth = 2.0
+            
             alertController = UIAlertController(title: "Wrong Answer", message: "Wrong answer, the correct answer is \(correctChoice)", preferredStyle: .alert)
             defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
@@ -286,9 +340,12 @@ class ReviewView : UIViewController {
             correctIndex = idList[reviewProgressCount]
             randChoice = getRandomChoices(deck: deckName, deckID: correctIndex)
             
-            prepareQuestion(id: correctIndex, choices: randChoice)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.prepareQuestion(id: self.correctIndex, choices: self.randChoice)
+            }
         }
     }
+    
     func updateStatusToReviewed() {
         
         let dF = DateFormatter()
@@ -332,9 +389,26 @@ class ReviewView : UIViewController {
 
     }
     
+    func resetButtonBorders () {
+        
+        button1label.layer.borderWidth = 0.0
+        button2label.layer.borderWidth = 0.0
+        button3label.layer.borderWidth = 0.0
+        button4label.layer.borderWidth = 0.0
+        button5label.layer.borderWidth = 0.0
+        button6label.layer.borderWidth = 0.0
+        
+    }
+    
     func prepareQuestion(id: Int, choices: [String]) {
         var word: String
         var def: String = "test"
+        
+        
+            self.resetButtonBorders()
+        
+
+        
         
         // dirty way of shuffling choices, check the extension at the very bottom
         var buttonArray = ["button1", "button2", "button3", "button4", "button5", "button6"].shuffled()
@@ -409,7 +483,9 @@ class ReviewView : UIViewController {
                 }
             }
         
+        
         }
+        
 
     }
     

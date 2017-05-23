@@ -59,7 +59,7 @@ class RegisterView : UIViewController , UITextFieldDelegate {
     
     func switchStateChange(_ sw: UISwitch) {
         if sw.isOn {
-            tnclabel.text = "Yes, I have read the Terms & Conditions."
+            tnclabel.text = "Yes, I have \"read\" the Terms & Conditions."
         }
         else {
             tnclabel.text = "No, I haven't read the Terms & Conditions yet."

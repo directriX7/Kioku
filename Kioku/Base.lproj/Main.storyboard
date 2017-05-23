@@ -200,7 +200,7 @@
                                     <constraint firstAttribute="width" constant="200" id="VlA-jU-SLm"/>
                                 </constraints>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="nextbutton:" destination="GJN-0x-X5p" eventType="touchUpInside" id="hqf-mV-A58"/>
