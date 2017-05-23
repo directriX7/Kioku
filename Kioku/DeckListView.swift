@@ -40,6 +40,15 @@ class DeckListView : UIViewController, UITableViewDataSource, UITableViewDelegat
         toreviewLabel.isHidden = true
         learnButtonLabel.isHidden = true
         reviewButtonLabel.isHidden = true
+        
+        learnButtonLabel.layer.cornerRadius = learnButtonLabel.frame.size.height/2
+        learnButtonLabel.layer.borderColor = UIColor (red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0).cgColor
+        learnButtonLabel.layer.borderWidth = 2.0
+
+        reviewButtonLabel.layer.cornerRadius = learnButtonLabel.frame.size.height/2
+        reviewButtonLabel.layer.borderColor = UIColor (red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0).cgColor
+        reviewButtonLabel.layer.borderWidth = 2.0
+
     }
     
     override func didReceiveMemoryWarning() {

@@ -9,6 +9,7 @@
 import UIKit
 import TextFieldEffects
 
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var userField: HoshiTextField!
