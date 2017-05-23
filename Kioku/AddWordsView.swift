@@ -105,15 +105,15 @@ class AddWordsView : UIViewController {
     var username = ""
     
     let fmdbDataModel = FMDBDataModel()
-    let WORD_XCOORD = 15.0
-    let WORD_YCOORD = 150.0
-    let WORD_WIDTH = 160.0
-    let WORD_HEIGHT = 30.0
-    
-    let DEF_XCOORD = 189.0
-    let DEF_YCOORD = 150.0
-    let DEF_WIDTH = 178.0
-    let DEF_HEIGHT = 30.0
+//    let WORD_XCOORD = 15.0
+//    let WORD_YCOORD = 150.0
+//    let WORD_WIDTH = 160.0
+//    let WORD_HEIGHT = 30.0
+//    
+//    let DEF_XCOORD = 189.0
+//    let DEF_YCOORD = 150.0
+//    let DEF_WIDTH = 178.0
+//    let DEF_HEIGHT = 30.0
     
     
     var wordFieldList : [UITextField] = []
