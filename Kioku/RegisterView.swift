@@ -76,7 +76,7 @@ class RegisterView : UIViewController , UITextFieldDelegate {
         if !result! {// If inserting fails
 //            print("Error: \(String(describing: contactDB.lastErrorMessage()))")
         } else {// Alert prompt confirming registration completion
-            let alertController = UIAlertController(title: "Registration Completed", message: "You have registered successfully! Please login using your account details.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Registration Completed", message: "You have registered successfully! You can now add decks to your profile and start learning right away!", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .default, handler:  { (UIAlertAction) in
                 self.performSegue(withIdentifier: "segue_home", sender: Any?.self)
             })
@@ -126,13 +126,16 @@ class RegisterView : UIViewController , UITextFieldDelegate {
         verifyPassMatchImage.alpha = 1.0
         if !(passfield.text! == confirmpassfield.text!) {
             verifyPassMatchImage.image = UIImage(named:"ico_cross")
+            confirmpassfield.borderActiveColor = UIColor.red
+            confirmpassfield.borderInactiveColor = UIColor.red
 //            let bordColor : UIColor = UIColor.red
 //            confirmpassfield.layer.borderWidth = 1.0
 //            confirmpassfield.layer.borderColor = bordColor.cgColor
             passMatch = false
         } else {
             verifyPassMatchImage.image = UIImage(named:"ico_check")
-            confirmpassfield.layer.borderWidth = 0.0
+            confirmpassfield.borderActiveColor = UIColor.blue
+            confirmpassfield.borderInactiveColor = UIColor.blue
             passMatch = true
         }
     }
@@ -143,18 +146,22 @@ class RegisterView : UIViewController , UITextFieldDelegate {
         
         if checkUserExists(username: userfield.text!) {
             userExistsImage.alpha = 1.0
-            let bordColor : UIColor = UIColor.red
-            userfield.layer.borderWidth = 1.0
-            userfield.layer.borderColor = bordColor.cgColor
+            userExistsImage.image = UIImage(named:"ico_cross")
+            userfield.borderActiveColor = UIColor.red
+            userfield.borderInactiveColor = UIColor.red
             userExists = true
         } else {
             userExistsImage.alpha = 0
             userfield.layer.borderWidth = 0.0
+            userExistsImage.image = UIImage(named:"ico_check")
             userExists = false
             
         }
         
         if (!userExists) && (passMatch) && (tncswitch.isOn) {
+            userfield.borderActiveColor = UIColor.blue
+            userfield.borderInactiveColor = UIColor.blue
+            
             registerUser(username: userfield.text!, password: passfield.text!)
         } else {
             

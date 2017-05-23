@@ -131,8 +131,8 @@
 				942B44DE1ECF1DEF00C01CDF /* RegisterView.swift */,
 				942B44E01ECF3D7D00C01CDF /* DeckListView.swift */,
 				9424873B1ECF59D00020965B /* AddWordsView.swift */,
-				9424873D1ECF63750020965B /* AddDeckView.swift */,
 				941D012E1ED00EDC007B64B2 /* LearnView.swift */,
+				9424873D1ECF63750020965B /* AddDeckView.swift */,
 				941D01301ED00F59007B64B2 /* ReviewView.swift */,
 				94A327711ED331DF0048D8E5 /* AddExistingDeckView .swift */,
 			);
