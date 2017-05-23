@@ -15,6 +15,7 @@ class AddDeckView : UIViewController {
     
     @IBOutlet weak var deckName: HoshiTextField!
     @IBOutlet weak var deckDesc: HoshiTextField!
+    
     var player: AVAudioPlayer?
     
     var username = ""
@@ -85,12 +86,32 @@ class AddDeckView : UIViewController {
     
     @IBAction func nextbutton(_ sender: UIButton) {
         playSound()
-        if (addToDeckTable(name: deckName.text!, definition: deckDesc.text!)) && (addToUserDeckReference(username: self.username, deck: deckName.text!)) {
+        
+        if (deckName.text != "" && deckDesc.text != "") {
+        
+            deckName.borderActiveColor = UIColor.black
+            deckDesc.borderInactiveColor = UIColor.black
             
-            performSegue(withIdentifier: "toAddWords", sender: Any?.self)
+            if (addToDeckTable(name: deckName.text!, definition: deckDesc.text!)) && (addToUserDeckReference(username: self.username, deck: deckName.text!)) {
+            
+                performSegue(withIdentifier: "toAddWords", sender: Any?.self)
+            }
+            else {
+            
+            }
         }
         else {
-            
+            if (deckName.text == "")
+            {
+                deckName.borderActiveColor = UIColor.red
+                deckName.borderInactiveColor = UIColor.red
+                print("deckname blank")
+            }
+            if (deckDesc.text == "")
+            {
+                deckDesc.borderActiveColor = UIColor.red
+                deckDesc.borderInactiveColor = UIColor.red
+            }
         }
         
     }
