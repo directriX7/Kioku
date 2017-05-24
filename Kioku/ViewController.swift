@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         btnRegister.layer.cornerRadius = btnRegister.frame.size.height/2
         btnRegister.layer.borderColor = UIColor (red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0).cgColor
         btnRegister.layer.borderWidth = 2.0
-
+        
         checkDB()
         // Do any additional setup after loading the view, typically from a nib.
     }

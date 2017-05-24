@@ -282,8 +282,12 @@ class ReviewView : UIViewController {
     }
     func updateStatusToReviewed() {
         
+        let dF = DateFormatter()
+        dF.dateFormat = "YYYY-MM-dd"
+        let dateNow = dF.string(from: Date())
+        print(dateNow)
         let deckID = "\(deckName)\(idList[reviewProgressCount])"
-        let updateSQL = "UPDATE USERPROGRESS SET TOREVIEW = 'NO' WHERE USERNAME = '\(username)' AND DECKID = '\(deckID)'"
+        let updateSQL = "UPDATE USERPROGRESS SET TOREVIEW = 'NO', LASTDATE = '\(dateNow)' WHERE USERNAME = '\(username)' AND DECKID = '\(deckID)'"
         
         let execStatement = db.UpdateDBWithRequestString(sql: updateSQL)
         
